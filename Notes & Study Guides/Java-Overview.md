@@ -15,7 +15,12 @@
 **More Java Info**
 - **High-Level Language** - No Need for manual memory management
     - Java contains automated garbage collection processes
-- **Statically Typed Language** - 
+- **Statically Typed Language** - You must provide the type for your data when writing your code
+    - Declare type explicitly (Normal)
+        - `String myStr = "Hello World";`
+    - Use special type *var* and have the compiler infer the type based on the value
+        - `var age = 27;`
+- **Strongly Typed Language** - Once a reference has its type set, Java cannot implicitly change the type of that reference
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
