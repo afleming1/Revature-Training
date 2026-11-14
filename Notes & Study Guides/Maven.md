@@ -130,7 +130,14 @@ Maven draws from up to three repositories, each with a distinct role.
 ### 4.2 How Dependency Resolution Works
 When a build references a dependency, Maven resolves it through a fixed lookup order.
 
-//
+```mermaid
+graph LR
+    P[Build Needs Artifact] --> L{In  Local Repo?}
+    L -->|Yes| U{Use Cached Copy}
+    L --> |No| C{Central or Remote Repo}
+    C --> |"Download & Cache to Local"|L
+    C --> |Not Found| E[Build Fails]
+```
 
 1. Maven checks the **local repository** for the artifact's exact coordinates
 2. If absent, it queries the configured **central/remote** repositories
