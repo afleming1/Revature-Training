@@ -1,6 +1,8 @@
 # Java Methods
 
 ## Table Of Contents
+- [1. Java Methods](#1-java-methods)
+    [1.1 Method Declaration & Syntax](#11-method-declaration--syntax)
 
 ## 1. Java Methods
 Java **methods** are the mechanism in which you define repeatable actions within your code. Methods are attached to classes an can be instanced or class scope. Call a method using the **`.`** operator and reference the method you want to invoke.
