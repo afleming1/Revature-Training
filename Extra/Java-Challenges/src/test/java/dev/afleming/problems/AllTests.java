@@ -9,7 +9,7 @@ public class AllTests {
         String word1 = "abc";
         String word2 = "pqr";
 
-        Assertions.assertEquals("apbqcr", new AllProblems().mergeStringAlternatively(word1, word2));
+        Assertions.assertEquals("apbqcr", new JavaProblems().mergeStringAlternatively(word1, word2));
     }
 
     @Test

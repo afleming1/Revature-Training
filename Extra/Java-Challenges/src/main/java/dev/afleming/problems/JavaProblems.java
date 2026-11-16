@@ -3,7 +3,7 @@ package dev.afleming.problems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllProblems {
+public class JavaProblems {
     public String mergeStringAlternatively(String word1, String word2) {
         StringBuilder mergedString = new StringBuilder();
 
@@ -86,5 +86,23 @@ public class AllProblems {
         }
 
         return reversed.toString().trim();
+    }
+
+    public boolean uniqueOccurrences(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int uniqueCount = 0;
+
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    uniqueCount++;
+                }
+            }
+
+            if (uniqueCount > 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
