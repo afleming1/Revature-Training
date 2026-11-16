@@ -21,7 +21,6 @@
 Two terms that represent different approaches for maintaining a high level of "quality" for a product or service.
 - **Quality** - Catch-all term used to represent the features, components, and non-tangibles of a service / product that all contribute to the satisfaction of the user
 
-
 **QA** & **QC** are two approaches to maintaining a high level of product quality.
 
 **Quality Assurance (QA)**
