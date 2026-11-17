@@ -6,6 +6,7 @@
   - [1. Test Team Roles](#1-test-team-roles)
   - [2. Software Testing Lifecycle](#2-software-testing-lifecycle)
   - [3. Defect Lifecycle](#3-defect-lifecycle)
+  - [4. Testing Documentation](#4-testing-documentation)
 
 ## 1. Test Team Roles
 Whatever the organization / structure of your testing team, there are at least 4 roles that must be filled
@@ -86,5 +87,44 @@ The **Defect Lifecycle** is a way of organizing your approach to fixing defects 
 7. Closure
     - Close the defect, create a report on work one
     - Periodically aggregate your defect reports and inform stakeholders on the work that has been done
+
+[&uarr; Return to Table of Contents](#table-of-contents)
+
+## 4. Testing Documentation
+There are some common documents used by testing teams to help facilitate, order, and keep track of work
+- Test Plan
+    - Strategic document for the whole testing lifecycle, it incldes multiple important details for your testing work
+        - Test Objectives
+        - Schedule
+        - Estimates
+        - Deliverables
+        - Reference to other documents
+- Test Schedule
+    - Timeline for your testing activities
+        - Can be a fine-grain schedule with individual test timelines
+        - High level overview of the testing timeline, more focused on sprint details than individual test details
+- Requirements Traceability Matrix
+    - Bidirectional map of requirements
+        - User Stories / Features should be mapped to requirements
+        - Requirements should be mapped to test data
+        - Test data should be mapped to test cases
+        - Test cases should be mapped to defects
+    - RTMs are meant to be "living documents"
+        - As test basis / conditions change, your RTM should be updated to accommodate those changes
+            - This could mean adding on new requirements, test data, etc...
+            - This cold mean removing old requirements, test data, etc...
+- Software Requirements Specification
+    - SRSs are detailed descriptions of the software being tested / built
+        - This is where the requirements for the application exist
+        - This is an invaluable tool for getting started with setting up a RTM: the user stories / features and the requirements for those features can usually be mapped from this document
+- Test Progress Report
+    - Any test report generated before the end of the test cycle
+        - Reports on tests run
+        - \# Passing Tests
+        - \# Failing Tests
+        - \# Skipped Tests
+- Test Summary Report
+    - The test report generated at the end of the test cycle
+    - This is the final report presented to stakeholders and archived for future reference
 
 [&uarr; Return to Table of Contents](#table-of-contents)
