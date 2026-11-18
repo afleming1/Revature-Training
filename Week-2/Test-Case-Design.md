@@ -127,7 +127,7 @@ If we had more requirements or any kind of information, we could use the other t
 ## 5. Exploratory Testing
 The types of test techniques and strategies we have looked at all have a general assumption that you have a decent amount of test basis to work off. This will not always be the case - sometimes you will have to creates tests with very little to go off. In these cases, you can use your experience as a user and tester to craft tests that you are confident will provide meaningful information when run.
 - In a black box scenario, this is called "Error Guess Testing"
-- In a white box scenario, this is called "Exploratory Guessing"
+- In a white box scenario, this is called "Exploratory Testing"
 
 These are technical terms provided for a non-technical process - it's essentially making it up as you go, but ideally you use your personal experience and understanding of the software being tested to create the most beneficial tests you can think of.
 
