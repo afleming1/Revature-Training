@@ -1,0 +1,17 @@
+﻿{
+    "Notes-Study-Guides": [
+        "Classes.md",
+        "Java-Basics.md",
+        "Java-Overview.md",
+        "Maven.md",
+        "Methods.md",
+        "OOP.md",
+        "SQL-Overview.md",
+        "SQL_Structure.md"
+    ],
+    "Week-2": [
+        "Test-Case-Design.md",
+        "Test-Team-Organization.md",
+        "Testing-Philosophy.md"
+    ]
+}
