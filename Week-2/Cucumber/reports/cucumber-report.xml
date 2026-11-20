@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="0.105" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-20T19:52:54.849866200Z">
+<testcase classname="Example Feature" name="Example Scenario" time="0.003">
+<system-out><![CDATA[
+Given some starting condition...............................................passed
+When one or more actions are performed......................................passed
+Then some outcome should be achieved........................................passed
+]]></system-out>
+</testcase>
+</testsuite>
