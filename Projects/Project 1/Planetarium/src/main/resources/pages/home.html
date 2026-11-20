@@ -11,7 +11,7 @@
 
 		<link rel="stylesheet" href="/css/site.css">
 	</head>
-	<body>
+	<body data-page="home">
 		<nav class="navbar navbar-expand-lg bg-opacity-75 border-bottom border-secondary sticky-top">
 			<div class="container">
 				<a class="navbar-brand fw-semibold" href="/planetarium">
@@ -25,6 +25,148 @@
 				</button>
 			</div>
 		</nav>
+
+		<main class="container py-4">
+			<section class="hero-card border-secondary shadow-lg mb-4">
+				<div class="card-body p-4 p-lg-5">
+					<div class="row align-items-center g-4">
+						<div class="col-lg-7">
+							<p class="text-uppercase text-info fw-semibold small mb-2">Mission Control</p>
+							<h1 class="display-6 fw-bold mb-2" id="greeting">Welcome to the Planetarium</h1>
+
+							<p class="text-secondary mb-0">
+								Create, view, and delete your planets and moons from one dashboard.
+							</p>
+						</div>
+
+						<div class="col-lg-5">
+							<div class="row g-3">
+								<div class="col-6">
+									<div class="stat-card rounded-3 p-3 text-center">
+										<div class="fs-2 fw-bold" id="planet-count">0</div>
+										<div class="text-secondary small">Planets</div>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<div class="stat-card rounded-3 p-3 text-center">
+										<div class="fs-2 fw-bold" id="moon-count">0</div>
+										<div class="text-secondary small">Moons</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="row g-4">
+				<section class="col-lg-4">
+					<div class="card border-secondary shadow-lg h-100">
+						<div class="card-header bg-dark border-secondary">
+							<h2 class="h5 mb-0">
+								<i class="bi bi-plus-circle me-2"></i>
+								Create Celestial Body
+							</h2>
+						</div>
+
+						<div class="card-body">
+							<div class="mb-3">
+								<label for="location-select" class="form-label">Type</label>
+								<select id="location-select" class="form-select">
+									<option value="moon">Moon</option>
+									<option value="planet">Planet</option>
+								</select>
+							</div>
+
+							<form id="create-form" novalidate>
+								<div id="input-container"></div>
+							</form>
+
+							<div class="alert alert-info mt-3 mb-0 small">
+								<i class="bi bi-info-circle me-1"></i>
+								Names may contain letters, numbers, spaces, underscores, and hyphens.
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="col-lg-8">
+					<div class="card border-secondary shadow-lg mb-4">
+						<div class="card-header bg-dark border-secondary">
+							<h2 class="h5 mb-0">
+								<i class="bi bi-trash3 me-2"></i>
+								Delete Celestial Body
+							</h2>
+						</div>
+
+						<div class="card-body">
+							<div class="row g-3">
+								<div class="col-md-8">
+									<label for="delete-input" class="form-label">Name to delete</label>
+									<input type="text" id="delete-input" class="form-control" placeholder="Enter planet or moon name">
+								</div>
+
+								<div class="col-md-4 d-flex align-items-end">
+									<button class="btn btn-danger w-100" id="delete-button" type="button">
+										<i class="bi bi-trash3 me-1"></i>
+										Delete
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card border-secondary shadow-lg">
+						<div class="card-header bg-dark border-secondary d-flex justify-content-between align-items-center">
+							<h2 class="h5 mb-0">
+								<i class="bi bi-table me-2"></i>
+								Your Celestial Bodies
+							</h2>
+
+							<button class="btn btn-sm btn-outline-info" id="refresh-button" type="button">
+								<i class="bi bi-arrow-clockwise me-1"></i>
+								Refresh
+							</button>
+						</div>
+
+						<div class="card-body p-0">
+							<div class="table-responsive">
+								<table class="table table-dark table-hover align-middle mb-0" id="celestial-table">
+									<thead>
+										<tr>
+											<th scope="col">Type</th>
+											<th scope="col">ID</th>
+											<th scope="col">Name</th>
+											<th scope="col">Owner</th>
+											<th scope="col">Image</th>
+										</tr>
+									</thead>
+									<tbody id="celestial-table-body">
+										<tr>
+											<td colspan="5" class="text-center text-secondary py-4">
+												Loading celestial bodies...
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<div class="toast-container position-fixed bottom-0 end-0 p-3">
+			<div id="app-toast" class="toast text-bg-dark border-secondary" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+					<strong class="me-auto" id="toast-title">Planetarium</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+
+				<div class="toast-body" id="toast-message"></div>
+			</div>
+		</div>
 
 		<script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 

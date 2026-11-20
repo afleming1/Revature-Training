@@ -20,46 +20,58 @@ public class Utility {
 
     public static void resetTestDatabase() throws IOException {
         ClassLoader classLoader = Utility.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("Setup-Reset.sql");
-        StringBuilder sqlBuilder = new StringBuilder();
 
-        try (Connection connection = DatabaseConnector.getConnection(); Stream<String> lines = (new BufferedReader(new InputStreamReader(inputStream)).lines());) {
+        try (InputStream setupScript = classLoader.getResourceAsStream("Setup-Reset.sql"); Connection connection = DatabaseConnector.getConnection()) {
+            if (setupScript == null) {
+                throw new FileNotFoundException("Missing resource: Setup-Reset.sql");
+            }
+
+            StringBuilder sqlBuilder = new StringBuilder();
+
+            try (Stream<String> lines = new BufferedReader(new InputStreamReader(setupScript)).lines()) {
+                lines.forEach(sqlBuilder::append);
+            }
+
             connection.setAutoCommit(false);
 
-            Objects.requireNonNull(sqlBuilder);
-
-            lines.forEach(sqlBuilder::append);
-
             String[] sqlStatements = sqlBuilder.toString().split(";");
-
             int imageCount = 1;
 
             for (String sqlStatement : sqlStatements) {
                 String sql = sqlStatement.trim();
 
-                if (!sql.isEmpty()) {
-                    if (sql.contains("?")) {
-                        String type = sql.contains("moons") ? "moon" : "planet";
+                if (sql.isEmpty()) {
+                    continue;
+                }
 
-                        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                            byte[] imageData = classLoader.getResourceAsStream(String.format("Celestial-Images/%s-%d.jpg", type, imageCount)).readAllBytes();
+                if (sql.contains("?")) {
+                    String type = sql.contains("moons") ? "moon" : "planet";
+                    String imagePath = String.format("Celestial-Images/%s-%d.jpg", type, imageCount);
 
-                            preparedStatement.setBytes(1, imageData);
-                            preparedStatement.executeUpdate();
-
-                            imageCount = imageCount == 2 ? 1 : 2;
+                    try (InputStream imageStream = classLoader.getResourceAsStream(imagePath); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                        if (imageStream == null) {
+                            throw new FileNotFoundException("Missing resource: " + imagePath);
                         }
-                    } else {
-                        try (Statement statement = connection.createStatement()) {
-                            statement.executeUpdate(sql);
-                        }
+
+                        preparedStatement.setBytes(1, imageStream.readAllBytes());
+                        preparedStatement.executeUpdate();
+
+                        imageCount = imageCount == 2 ? 1 : 2;
+                    }
+                } else {
+                    try (Statement statement = connection.createStatement()) {
+                        statement.executeUpdate(sql);
                     }
                 }
             }
 
             connection.commit();
         } catch (SQLException | IOException exception) {
-            ((Exception) exception).printStackTrace();
+            exception.printStackTrace();
+
+            if (exception instanceof IOException ioException) {
+                throw ioException;
+            }
         }
     }
 
