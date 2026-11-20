@@ -28,4 +28,19 @@ public class FirstCucumberTestSteps {
     public void whatever() {
         System.out.println("Then statement executed");
     }
+
+    // Note we are using "Given" here for the * steps in the feature file
+
+    // To tell Cucumber we are parameterizing the step, we replace the parameter placeholder from the feature step text with
+    // {} and an indicator for the type of data that is being injected. String will be very common, but there are other supported
+    // types as well.
+    @Given("we use test data {string}")
+    public void we_use_test_data(String data) {
+        System.out.println("We injected the following data into our step: " + data);
+    }
+
+    @Given("the data should actually be used")
+    public void the_data_should_actually_be_used() {
+        System.out.println("Second given statement executed");
+    }
 }

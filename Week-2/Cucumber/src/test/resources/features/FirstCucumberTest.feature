@@ -7,6 +7,12 @@ Feature: Example Feature
   The Feature is the reason for your file's existence. It is the overall user story / feature you are actually testing.
   Every test scenario you add to this file should, in theory, relate the given feature.
 
+  # Background should be used when the scenarios in your feature file all share one or more starting conditions. Those
+  # shared steps to produce the starting condition are declared in the background section, and then they are the first
+  # steps executed for each scenario in the file. Any one-off setup actions must go in their specific scenario.
+  Background:
+    Given some starting condition
+
   # Scenarios are your actual test cases. These resources are used to determine how many tests you run for each
   # Feature file you have. If you have one Scenario, you have one test case, two scenarios means 2 test cases, etc...
 
@@ -20,6 +26,21 @@ Feature: Example Feature
     # When - Meant to indicate an action performed
     # Then - Meant meant to indicate an achieved result, the meaning behind the key words is meant for us: Cucumber only
     # uses these key words to know that a new step is reached
-    Given some starting condition
     When  one or more actions are performed
     Then  some outcome should be achieved
+
+  # Whenever you have a scenario you need to run multiple times, just changing the test data you use as inputs, you can
+  # make a Scenario Outline with associated Examples data. These scenarios will run for each row of associated test data you provide
+  Scenario Outline: Example Parameterized Scenario
+    # * is a useful indicator when you need to list out sub actions for a previous statement, but again, Cucumber only
+    # sees it as an indicator of a new step
+    # <data> tells Cucumber to inject the associated "data" into the code at runtime
+    * we use test data "<data>"
+    * the data should actually be used
+
+  # The data you want to inject into your steps goes in an Examples table. For each row of data, the associated Scenario
+  # Outline will execute
+  Examples:
+    | data |
+    | first |
+    | second |
