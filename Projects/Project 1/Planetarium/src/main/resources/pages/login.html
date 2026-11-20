@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Planetarium Login</title>
+
+		<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/lib/bootstrap-icons/bootstrap-icons.min.css">
+
+		<link rel="stylesheet" href="/css/site.css">
+	</head>
+	<body class="auth-page" data-page="login">
+		<nav class="navbar navbar-expand-lg bg-opacity-75 border-bottom border-secondary sticky-top">
+			<div class="container">
+				<a class="navbar-brand fw-semibold" href="/planetarium">
+					<i class="bi bi-stars me-2"></i>
+					Planetarium
+				</a>
+
+				<button class="btn btn-outline-light" id="logout-button" type="button">
+					<i class="bi bi-box-arrow-right me-1"></i>
+					Logout
+				</button>
+			</div>
+		</nav>
+
+		<main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+			<div class="auth-card card border-secondary shadow-lg">
+				<div class="card-body p-4 p-md-5">
+					<div class="text-center mb-4">
+						<div class="brand-icon mx-auto mb-3">
+							<i class="bi bi-stars"></i>
+						</div>
+
+						<h1 class="h3 fw-bold mb-1">Planetarium Login</h1>
+						<p class="text-secondary mb-0">Welcome back, explore.</p>
+					</div>
+
+					<form id="login-form" novalidate>
+						<div class="mb-3">
+							<label for="login-username-input" class="form-label">Username</label>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="bi bi-person"></i>
+								</span>
+
+								<input type="text" id="login-username-input" class="form-control" placeholder="Enter username" autocomplete="username" required>
+							</div>
+						</div>
+
+						<div class="mb-4">
+							<label for="login-password-input" class="form-label">Password</label>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="bi bi-lock"></i>
+								</span>
+
+								<input type="password" id="login-password-input" class="form-control" placeholder="Enter password" autocomplete="current-password" required>
+							</div>
+						</div>
+
+						<button class="btn btn-primary w-100" type="submit">
+							<i class="bi bi-box-arrow-in-right me-1"></i>
+							Login
+						</button>
+					</form>
+
+					<div class="text-center mt-3">
+						<span class="text-secondary small">Need an account?</span>
+
+						<a href="/register" class="small ms-1">Create one</a>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<div class="toast-container position-fixed bottom-0 end-0 p-3">
+			<div id="app-toast" class="toast text-bg-dark border-secondary" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+					<strong class="me-auto" id="toast-title">Planetarium</strong>
+
+					<button type="submit" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+
+				<div class="toast-body" id="toast-message"></div>
+			</div>
+		</div>
+
+		<script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<script src="/js/app.js"></script>
+	</body>
+</html>
