@@ -16,7 +16,9 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @IncludeEngines("cucumber") // Tells JUnit Cucumber will be running one or more of these tests
 @SelectPackages("features") // Tells JUnit where to find out tests
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.revature.steps") // Tells Cucumber where to find our Glue steps
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty") // Makes the CLI test report much nicer to read
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "html:reports/cucumber-report.html") // Makes Cucumber generate an HTML report
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "junit:reports/cucumber-report.xml") // Makes Cucumber generate an HTML report
+//@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty") // Makes the CLI test report much nicer to read
+//@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "html:reports/cucumber-report.html") // Makes Cucumber generate an HTML report
+//@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "junit:reports/cucumber-report.xml") // Makes Cucumber generate an HTML report
+
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:reports/cucumber-report.html, junit:reports/cucumber-report.xml")
 public class CucumberRunner {}

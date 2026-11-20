@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.109" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-20T20:25:19.055275500Z">
-<testcase classname="Example Feature" name="Example Scenario" time="0.003">
+<testsuite name="Cucumber" time="0.135" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-20T20:41:54.532060400Z">
+<testcase classname="Example Feature" name="Example Scenario" time="0.009">
 <system-out><![CDATA[
 Given some starting condition...............................................passed
 When one or more actions are performed......................................passed
 Then some outcome should be achieved........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Example Feature" name="Example Parameterized Scenario - #1.1" time="0.001">
+<testcase classname="Example Feature" name="Example Parameterized Scenario - #1.1" time="0.002">
 <system-out><![CDATA[
 Given some starting condition...............................................passed
 * we use test data "first"..................................................passed
 * the data should actually be used..........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Example Feature" name="Example Parameterized Scenario - #1.2" time="0.0">
+<testcase classname="Example Feature" name="Example Parameterized Scenario - #1.2" time="0.001">
 <system-out><![CDATA[
 Given some starting condition...............................................passed
 * we use test data "second".................................................passed
