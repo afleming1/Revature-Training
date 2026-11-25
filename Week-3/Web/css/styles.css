@@ -1,4 +1,78 @@
+/* Universal Selector - Applies Everywhere */
+* {
+    margin: 2px;
+}
+
+/* Element Selector */
 body {
     background-color: lightgray;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul {
+    font-weight: 600;
+}
+
+/* ID Selector */
+#myDiv {
+    padding: 0%;
+}
+
+/* Class Selectors */
+.box {
+    display: flex;
+    gap: 10px;
+}
+
+.item {
+    flex: 1;
+}
+
+/* Ruleset to Multiple Selectors */
+h1, .box, #myDiv {
+    border: 5px solid darkblue;
+}
+
+a {
+    color: fuchsia;
+    text-decoration: none;
+}
+
+/* Descendent Selector - All <a> Elements Inside #myDiv are Selected */
+#myDiv a:hover {
+    color: maroon;
+}
+
+/* Child Selector - Only Selects the <a> That are Descendents of <div> */
+div > a {
+
+}
+
+/* General Sibling Selector - Gets Any Siblings Regardless of How Many Other Siblings There are and How They are Listed in HTML
+/*
+<div>
+    <h1>Heading</h1>
+    <h2>Subheading</h2>
+    <p>Details</p>
+</div>
+*/
+
+h1 ~ p {
+    /* The General Sibling Selector Ruleset Will Apply to Both the H1 and p Tags Above */
+}
+
+h2 + p {
+    /* The Adjacent Sibling Selector Apples Only When Those Two Tags are Adjacent in the HTML Code, They Share a Common Parent, and They Share a Common Parent and They are Expressed with no Elements Between the Siblings */
+}
+
+input[type="text"] {
+    /* Find All of the Input Elements Which Share the Type Attribute with a Value of "text" */
+}
+
+a:hover {
+    background-color: orange;
+}
+
+h6:hover {
+    font-size: random(4px, 16px, 4px);
 }
